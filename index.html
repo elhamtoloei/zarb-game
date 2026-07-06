@@ -1,3 +1,7 @@
+let score = 0;
+let life = 3;
+let correct = 0;
+let level = 1;
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
@@ -110,13 +114,23 @@ function check(v){
 
 if(v===ans){
   score+=10;
-  alert("آفرین! جنگل نجات پیدا کرد 🌿");
+  correct++;
+
+  alert("🌳 آفرین! یک درخت رشد کرد");
+
+  if(correct % 3 === 0){
+      level++;
+      alert("🎉 رفتی مرحله " + level);
+  }
+}
 }
 else{
   life--;
   alert("او نه! یک درخت از بین رفت ❌");
 }
-
+document.getElementById("forest").textContent =
+"🌱".repeat(10 - correct) + "🌳".repeat(correct);
+  
 document.getElementById("forest").textContent =
 "🌳".repeat(life) + "🌲".repeat(5-life);
 
